@@ -14,7 +14,7 @@ class UsuariosTest < ApplicationSystemTestCase
     visit usuarios_url
     click_on "New Usuario"
 
-    fill_in "Ativo", with: @usuario.ativo
+    fill_in "Ativo", with: @usuario.active
     fill_in "Login", with: @usuario.login
     fill_in "Senha", with: @usuario.password
     click_on "Create Usuario"
@@ -27,7 +27,7 @@ class UsuariosTest < ApplicationSystemTestCase
     visit usuarios_url
     click_on "Edit", match: :first
 
-    fill_in "Ativo", with: @usuario.ativo
+    fill_in "Ativo", with: @usuario.active
     fill_in "Login", with: @usuario.login
     fill_in "Senha", with: @usuario.password
     click_on "Update Usuario"

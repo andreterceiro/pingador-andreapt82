@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_183052) do
+ActiveRecord::Schema.define(version: 2022_02_07_185356) do
 
   create_table "hosts", force: :cascade do |t|
     t.string "address"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_183052) do
   create_table "usuarios", force: :cascade do |t|
     t.string "login"
     t.string "password"
-    t.integer "ativo"
+    t.integer "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
