@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PingadorAndreapt82</title>
+    <title>Pingador</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,10 @@
   </head>
 
   <body>
+    <% if @mostrar_menu %> 
+      <a href="/hosts">Hosts</a> - <a href="/usuarios">Usuários</a> - <a href="/login/logout">Logout</a>  
+      <hr />
+      <% end %>
     <%= yield %>
   </body>
 </html>

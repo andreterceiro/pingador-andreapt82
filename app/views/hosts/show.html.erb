@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @host.address %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @host.interval %>
+</p>
+
+<%= link_to 'Edit', edit_host_path(@host) %> |
+<%= link_to 'Back', hosts_path %>
