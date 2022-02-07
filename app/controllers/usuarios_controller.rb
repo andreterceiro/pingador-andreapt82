@@ -28,8 +28,7 @@ class UsuariosController < ApplicationController
   # POST /usuarios or /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
-    @usuario.senha = Digest::MD5.hexdigest(usuario_params['senha'] + Usuario.get_salt)
-    puts "%%%%%" + Digest::MD5.hexdigest(usuario_params['senha'] + Usuario.get_salt) + "%%%%%"
+    @usuario.password = Digest::MD5.hexdigest(usuario_params['password'] + Usuario.get_salt)
 
     respond_to do |format|
       if @usuario.save
@@ -47,7 +46,7 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       if @usuario.update(usuario_params)
         @usuario = Usuario.find params['id']
-        @usuario.senha = Digest::MD5.hexdigest('senha') + "123"
+        @usuario.password = Digest::MD5.hexdigest(usuario_params['password'] + Usuario.get_salt)
         @usuario.save  
         format.html { redirect_to usuario_url(@usuario), notice: "Usuario was successfully updated." }
         format.json { render :show, status: :ok, location: @usuario }
@@ -76,6 +75,6 @@ class UsuariosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def usuario_params
-      params.require(:usuario).permit(:login, :senha, :ativo)
+      params.require(:usuario).permit(:login, :password, :ativo)
     end
 end

@@ -16,7 +16,7 @@ class UsuariosTest < ApplicationSystemTestCase
 
     fill_in "Ativo", with: @usuario.ativo
     fill_in "Login", with: @usuario.login
-    fill_in "Senha", with: @usuario.senha
+    fill_in "Senha", with: @usuario.password
     click_on "Create Usuario"
 
     assert_text "Usuario was successfully created"
@@ -29,7 +29,7 @@ class UsuariosTest < ApplicationSystemTestCase
 
     fill_in "Ativo", with: @usuario.ativo
     fill_in "Login", with: @usuario.login
-    fill_in "Senha", with: @usuario.senha
+    fill_in "Senha", with: @usuario.password
     click_on "Update Usuario"
 
     assert_text "Usuario was successfully updated"
