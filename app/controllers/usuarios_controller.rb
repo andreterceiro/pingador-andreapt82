@@ -44,10 +44,16 @@ class UsuariosController < ApplicationController
   # PATCH/PUT /usuarios/1 or /usuarios/1.json
   def update
     respond_to do |format|
-      if @usuario.update(usuario_params)
-        @usuario = Usuario.find params['id']
-        @usuario.password = Digest::MD5.hexdigest(usuario_params['password'] + Usuario.get_salt)
-        @usuario.save  
+      params = usuario_params
+      password = params['password']
+      if password.empty?
+        params.delete("password")
+      end
+      if @usuario.update(params)
+        unless password.empty?
+          @usuario.password = Digest::MD5.hexdigest(params['password'] + Usuario.get_salt) 
+          @usuario.save
+        end
         format.html { redirect_to usuario_url(@usuario), notice: "Usuario was successfully updated." }
         format.json { render :show, status: :ok, location: @usuario }
       else
