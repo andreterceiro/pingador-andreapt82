@@ -7,12 +7,12 @@ class LoginController < ApplicationController
   end
 
   def login
-    @mostrar_menu = false
+    @show_menu = false
     unless params['login'].nil?
-      @usuario = Usuario.find_by_login params['login']
-      
-      unless @usuario.nil?
-        if @usuario.password == Digest::MD5.hexdigest(params['password'] + Usuario.get_salt) and @usuario.active == 1
+      @user = User.find_by_login(params['login'])
+
+      unless @user.nil?
+        if @user.password == Digest::MD5.hexdigest(params['password'] + User.get_salt) and @user.active == "1"
           session['logged'] = true
           redirect_to "/hosts"
         else
