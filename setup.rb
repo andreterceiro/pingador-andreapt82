@@ -35,13 +35,14 @@ while password.empty?
 end
 
 # Saving the user
-previous_user = Usuario.find_by_login(login)
+previous_user = User.find_by_login(login)
 if previous_user.nil?
-    user = Usuario.new
+    user = User.new
     user.login = login
-    user.password = Digest::MD5.hexdigest(password) + Usuario.get_salt
+    user.password = Digest::MD5.hexdigest(password + User.get_salt)
     user.active = 1
     user.save
+    puts "Success in save a user"
 else
     puts "We already has a user with this login. We did not create a new user."
 end
