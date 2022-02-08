@@ -31,6 +31,38 @@ No secrets. If you are updating a user and provide a blank passowrd, it will be 
 
 Logout link at the top: no secret - logout
 
+# Setup
+In the first use of the project, please run ```ruby setup.rb```:
+- If you don't have the ```config/salt.rb``` this file, who is in the ```.gitignore``` will be created with the value passed by you. If you already have the file, this step will be ignored;
+- If you don't have a user with the login provided by you, the user will be created.
+
+# Daemon
+We use ```fcl_rails_daemon```. Why the part "fcl" of this name? Because we worked on "FCL" when[@wosilva](https://www.linkedin.com/in/wosilva/) (an amazing developer) developed this Gem.
+
+I used this Gem to invoke the "ping" in intervals.
+
+If you want to run the processor of ```fcl_rails_daemon```:
+```
+fcld --command ping start
+```
+
+To stop:
+```
+fcld --command ping start
+```
+
+To see the status:
+```
+fcld --command ping status
+```
+
+If the Gem have success in start, you have a simple output with the text:
+```
+ping: process with pid 27057 started.
+```
+
+The PID (27057) is an example.
+
+If the output is big, with several lines, maybe will be informed a false postive. Sometimes it occours. You need to stop and start again only. Don't forget to stop.
+
 Have fun!
-
-
