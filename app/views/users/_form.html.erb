@@ -17,7 +17,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :password %> (deixe vazio para não alterar) <br />
+    <%= form.label :password %> 
+    <% 
+      if show_message_blank_password == true 
+    %>
+        (deixe vazio para não alterar) <br />
+    <%
+      end
+    %>
     <%= form.password_field :password, value: '' %>
   </div>
 
