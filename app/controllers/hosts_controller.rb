@@ -1,11 +1,6 @@
 class HostsController < ApplicationController
   before_action :set_host, only: %i[ show edit update destroy ]
-  before_action :set_show_menu
   before_action :redirect_to_login_if_necessary
-
-  def set_show_menu
-    @mostrar_menu = true
-  end
   
   # GET /hosts or /hosts.json
   def index
