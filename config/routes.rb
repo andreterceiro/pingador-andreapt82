@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :usuarios
+  resources :users
   get "login/logout", to: "login#logout" 
   get "login/login", to: "login#login" 
   post "login/login", to: "login#login" 
