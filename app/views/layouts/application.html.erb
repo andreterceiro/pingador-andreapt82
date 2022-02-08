@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <% if @mostrar_menu %> 
-      <a href="/hosts">Hosts</a> - <a href="/usuarios">Usuários</a> - <a href="/login/logout">Logout</a>  
+    <% if @show_menu %>
+      <a href="/hosts">Hosts</a> - <a href="/users">Usuários</a> - <a href="/login/logout">Logout</a>
       <hr />
       <% end %>
     <%= yield %>
